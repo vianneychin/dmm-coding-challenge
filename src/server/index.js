@@ -10,9 +10,10 @@ const app = express()
 app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'client')))
 
 require('./db')(app)
+require('./routes')(app, path)
 
 const PORT = process.env.PORT || 8000
 
