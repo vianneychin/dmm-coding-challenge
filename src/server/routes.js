@@ -1,6 +1,26 @@
 const dns = require('dns')
-const checkIfShortIdExists = require('./util')
-const shortenUrl = require('./util')
+const nanoid = require('nanoid')
+
+const shortenUrl = (db, url) => {
+  const shortenedUrls = db.collection('shortenedURLs')
+  return shortenedUrls.findOneAndUpdate(
+    { original_url: url },
+    {
+      $setOnInsert: {
+        original_url: url,
+        short_id: nanoid(7)
+      }
+    },
+    {
+      returnOriginal: false,
+      upsert: true
+    }
+  )
+}
+
+const checkIfShortIdExists = (db, code) => {
+  return db.collection('shortenedURLs').findOne({ short_id: code })
+}
 
 module.exports = (app, path) => {
   app.get('/', (_, res) => {

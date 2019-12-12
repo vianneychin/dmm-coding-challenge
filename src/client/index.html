@@ -46,6 +46,7 @@
         display: flex;
         justify-content: center;
         padding-top: 40px;
+        z-index: 1;
       }
     </style>
     <!-- I used class attributes for styles and id attributes for DOM manipulation. -->
@@ -54,10 +55,11 @@
         id="url-input"
         name="url"
         required
-        placeholder="i.e., www.google.com"
+        placeholder="i.e., https://www.google.com"
       />
-      <button>shorten url</button>
+      <button type="submit">shorten url</button>
     </form>
     <div id="shortened-link" class="result-container"></div>
+    <script src="index.js"></script>
   </body>
 </html>

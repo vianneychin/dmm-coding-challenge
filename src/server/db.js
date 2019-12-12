@@ -7,7 +7,7 @@ module.exports = app => {
       useNewUrlParser: true,
       useUnifiedTopology: true
     }).then(client => {
-      app.locals.db = client.db('shortened-links-db')
+      app.locals.db = client.db('shortener')
     })
   } catch (error) {
     console.error('Failed to connect to database')
