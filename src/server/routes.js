@@ -17,7 +17,7 @@ module.exports = (app, path) => {
     }
     dns.lookup(originalUrl.hostname, err => {
       if (err) {
-        return res.status(404).send({ error: 'URL is invalid.' })
+        return res.status(404).send({ error: 'URL is unavailable.' })
       }
     })
     shortenUrl(req.app.locals.db, originalUrl.href)
@@ -29,5 +29,18 @@ module.exports = (app, path) => {
         })
       })
       .catch(console.error)
+  })
+
+  app.get('/:short_id', async (req, res) => {
+    try {
+      const faviconIco = req.params.short_id
+
+      const doc = await checkIfShortIdExists(req.app.locals.db, faviconIco)
+
+      if (doc === null) return res.send('That URL is invalid.')
+      res.redirect(doc.original_url)
+    } catch (error) {
+      console.error(error)
+    }
   })
 }
