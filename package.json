@@ -4,8 +4,17 @@
   "description": "A coding challenge for Digital Media Management.",
   "main": "src/server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/server/index.js"
   },
   "author": "Vianney Chin",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.4.0",
+    "morgan": "^1.9.1",
+    "nanoid": "^2.1.7",
+    "nodemon": "^2.0.2"
+  }
 }
