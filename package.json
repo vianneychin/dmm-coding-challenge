@@ -1,0 +1,11 @@
+{
+  "name": "dmm-coding-challenge",
+  "version": "1.0.0",
+  "description": "A coding challenge for Digital Media Management.",
+  "main": "src/server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vianney Chin",
+  "license": "MIT"
+}
