@@ -4,6 +4,15 @@ const shortenedLink = document.getElementById('shortened-link')
 
 urlForm.addEventListener('submit', async event => {
   event.preventDefault()
+
+  /* Checks if the first 8 characters are https:// */
+  const checkIfHttps = 'https://'
+  for (let i = 0; i <= checkIfHttps.length - 1; i++) {
+    if (urlInput.value[i] !== checkIfHttps[i]) {
+      urlInput.value = 'URL must contain https://'
+    }
+  }
+
   try {
     const response = await fetch('/new', {
       method: 'POST',

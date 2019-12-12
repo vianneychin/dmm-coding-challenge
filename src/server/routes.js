@@ -38,6 +38,8 @@ module.exports = (app, path) => {
     dns.lookup(originalUrl.hostname, err => {
       if (err) {
         return res.status(404).send({ error: 'URL is unavailable.' })
+      } else {
+        return res.status(404).send({ error: 'Must contain https://' })
       }
     })
     shortenUrl(req.app.locals.db, originalUrl.href)
