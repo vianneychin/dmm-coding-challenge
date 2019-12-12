@@ -50,7 +50,12 @@
     </style>
     <!-- I used class attributes for styles and id attributes for DOM manipulation. -->
     <form id="url-form" class="main-container">
-      <input id="url-input" />
+      <input
+        id="url-input"
+        name="url"
+        required
+        placeholder="i.e., www.google.com"
+      />
       <button>shorten url</button>
     </form>
     <div id="shortened-link" class="result-container"></div>
